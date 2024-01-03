@@ -5,14 +5,19 @@ import Image from "next/image"
 import { Button } from "./ui/button"
 import { Expand, ShoppingCart } from "lucide-react"
 import Currency from "./currency"
+import { useRouter } from "next/navigation"
 
 export interface ProductCardProps {
     data: Product
 }
 
 export default function ProductCard({ data }: ProductCardProps) {
+    const router = useRouter()
+
+    const handleClick = () => router.push(`/product/${data.id}`)
     return (
         <div
+            onClick={handleClick}
             className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4"
         >
             {/* images and actions */}
