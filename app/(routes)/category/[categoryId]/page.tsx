@@ -7,6 +7,7 @@ import Container from "@/components/container";
 import Filter from "@/app/(routes)/category/[categoryId]/_components/filter";
 import NoResult from "@/components/no-result";
 import ProductCard from "@/components/product-card";
+import MobileFilter from "./_components/mobile-filter";
 
 export const revalidate = 0
 
@@ -38,7 +39,7 @@ export default async function CategoryPage({ params, searchParams }: CategoryPag
                 <Billboard data={category.billboard} />
                 <div className="px-4 sm:px-6 lg:px-8 pb-24">
                     <div className="lg:grid lg:grid-cols-5 lg:gap-x-8">
-                        {/* add mobile filters */}
+                        <MobileFilter sizes={sizes} colors={colors} />
                         <div className="hidden lg:block">
                             <Filter valueKey="sizeId" name="Sizes" data={sizes} />
                             <Filter valueKey="colorId" name="Colors" data={colors} />

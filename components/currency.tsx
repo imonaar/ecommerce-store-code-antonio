@@ -18,10 +18,10 @@ export default function Currency({ value }: CurrencyProps) {
         return null
     }
     return (
-        <div className="font-semibold">
+        <p className="font-semibold">
             {
                 formatter.format(Number(value))
             }
-        </div>
+        </p>
     )
 }
