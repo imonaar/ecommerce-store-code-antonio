@@ -31,14 +31,6 @@ export default function Summary() {
             productIds: items.map(item => item.id),
         });
         //we will calculate the totalCost afresh on the backend.
-
-        // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
-        //     method: "POST",
-        //     body: JSON.stringify({
-        //         productIds: items.map(item => item.id),
-        //     })
-        // })
-        
         window.location = res.data.url;
     }
 
@@ -57,7 +49,7 @@ export default function Summary() {
                     <Currency value={totalPrice.toString()} />
                 </div>
             </div>
-            <Button onClick={onCheckout} className='w-full mt-6 rounded-full'>
+            <Button disabled={items.length === 0} onClick={onCheckout} className='w-full mt-6 rounded-full'>
                 Checkout
             </Button>
         </div>
