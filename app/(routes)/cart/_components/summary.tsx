@@ -27,10 +27,18 @@ export default function Summary() {
     }, [searchParams, removeAll])
 
     const onCheckout = async () => {
-        const res = await axios.post(`/${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+        const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
             productIds: items.map(item => item.id),
         });
         //we will calculate the totalCost afresh on the backend.
+
+        // const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+        //     method: "POST",
+        //     body: JSON.stringify({
+        //         productIds: items.map(item => item.id),
+        //     })
+        // })
+        
         window.location = res.data.url;
     }
 
